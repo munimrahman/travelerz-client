@@ -1,0 +1,25 @@
+.card-border{
+    border: none !important;
+}
+.ribbon{
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    overflow: hidden;
+}
+.ribbon small{
+    width: 225px;
+    padding: 2px 0px;
+    background-color: #E91E63;
+    display: block;
+    position: absolute;
+    top: 25px;
+    transform: rotate(45deg);
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bold;
+}
