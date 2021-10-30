@@ -1,8 +1,9 @@
 .hover-color:hover{
-    background-color: rgb(13, 202, 240);
+    background-color: #e91e63;
+    color: white;
 }
 .user-img{
     height: 30px;
-    border: 1px solid #0dcaf0;
+    border: 1px solid #e91e63;
     border-radius: 50px;
 }

@@ -10,7 +10,7 @@ const OrderReceived = () => {
                 <div className="d-flex">
                     <div className="side-border pe-3">
                         <small className="s-font">ORDER ID:</small>
-                        <p className="m-0">0a5e4fe8Aa6GA</p>
+                        <p className="m-0">617ce395ae1b49942c03c4d0</p>
                     </div>
                     <div className="side-border px-3">
                         <small className="s-font">DATE:</small>
@@ -56,6 +56,7 @@ const OrderReceived = () => {
                         </tr>
                     </tbody>
                 </table>
+                <h4 className="mb-4">Billing address</h4>
                 <div className="border rounded p-3">
                     MD Munim Rahman <br />
                     Salia Bakpur, Banaripara <br />

@@ -4,6 +4,7 @@ import img from '../../images/pcard.jpg'
 import paypal from '../../images/paypal.png'
 import venmo from '../../images/venmo.png'
 import pay from '../../images/pay.png'
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
     return (
@@ -49,7 +50,7 @@ const Cart = () => {
                             <td colspan="2">
                                 <div className="d-flex">
                                     <input type="text" name="" id="" className="form-control w-25 me-2 shadow-none" />
-                                    <button className="btn shadow-none custom-btn py-2 rounded-pill">Apply Coupon</button>
+                                    <button className="btn shadow-none custom-btn px-3 py-2 rounded-pill">Apply Coupon</button>
                                 </div>
                             </td>
                             <td className="fw-bold">Subtotals:</td>
@@ -92,7 +93,9 @@ const Cart = () => {
                             </tbody>
                         </table>
                         <div className="text-center my-3">
-                            <button className="btn shadow-none custom-btn py-2 rounded-pill">PROCEED TO CHECKOUT</button>
+                            <Link to="/check-out">
+                                <button className="btn shadow-none custom-btn px-3 py-2 rounded-pill">PROCEED TO CHECKOUT</button>
+                            </Link>
                         </div>
                     </div>
                 </div>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './CheckOut.css'
 
 const CheckOut = () => {
@@ -101,7 +102,9 @@ const CheckOut = () => {
                     </div>
                     <hr />
                     <div className="text-end">
-                        <button className="btn shadow-none custom-btn py-3 px-4 rounded-pill px-3 py-2">PLACE ORDER</button>
+                        <Link to="/order-received">
+                            <button className="btn shadow-none custom-btn py-3 px-4 rounded-pill px-3 py-2">PLACE ORDER</button>
+                        </Link>
                     </div>
                 </div>
             </div>

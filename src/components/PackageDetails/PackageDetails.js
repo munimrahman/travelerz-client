@@ -16,7 +16,7 @@ const PackageDetails = () => {
             <div className="container mx-auto row pt-4">
                 <div className="col-12 col-md-9 px-0">
                     <div className="">
-                        <img src={packageImg6} className="img-fluid" alt="" />
+                        <img src={packageImg5} className="img-fluid" alt="" />
                     </div>
                     <div className="row mt-2 px-2">
                         <div className="col-2 px-1">
