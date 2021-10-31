@@ -1,32 +1,46 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Col, Nav, Row, Tab } from 'react-bootstrap';
+import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 import packageImg1 from '../../images/packageImg1.jpg'
 import packageImg2 from '../../images/packageImg2.jpg'
 import packageImg3 from '../../images/packageImg3.jpg'
 import packageImg4 from '../../images/packageImg4.jpg'
 import packageImg5 from '../../images/packageImg5.jpg'
 import packageImg6 from '../../images/packageImg6.jpg'
+import { addToDb } from '../../utilities/fakedb';
 import SideBar from '../SideBar/SideBar';
 import './PackageDetails.css'
 
 const PackageDetails = () => {
-    const [key, setKey] = useState('description');
+    const [keyToggle, setKeyToggle] = useState('description');
+    const { packageKey } = useParams()
+    const [packageDetails, setPackageDetails] = useState();
+    useEffect(() => {
+        fetch(`http://localhost:5000/packages/${packageKey}`)
+            .then(res => res.json())
+            .then(data => setPackageDetails(data))
+    }, [])
+    const { key, name, location, days, country, price, img1, img2, img3 } = packageDetails || {};
+    const handleAddToCart = () => {
+        addToDb(key)
+    }
     return (
         <div className="bg-eee">
             <div className="container mx-auto row pt-4">
                 <div className="col-12 col-md-9 px-0">
                     <div className="">
-                        <img src={packageImg5} className="img-fluid" alt="" />
+                        <img src={img2} className="img-fluid" alt="" />
                     </div>
                     <div className="row mt-2 px-2">
                         <div className="col-2 px-1">
-                            <img src={packageImg1} className="img-fluid" alt="" />
+                            <img src={img1} className="img-fluid" alt="" />
                         </div>
                         <div className="col-2 px-1">
-                            <img src={packageImg2} className="img-fluid" alt="" />
+                            <img src={img2} className="img-fluid" alt="" />
                         </div>
                         <div className="col-2 px-1">
-                            <img src={packageImg3} className="img-fluid" alt="" />
+                            <img src={img3} className="img-fluid" alt="" />
                         </div>
                         <div className="col-2 px-1">
                             <img src={packageImg4} className="img-fluid" alt="" />
@@ -40,32 +54,32 @@ const PackageDetails = () => {
                     </div>
                     {/* service details */}
                     <div className="my-3">
-                        <Tab.Container id="controlled-tab-example" activeKey={key} onSelect={(k) => setKey(k)}>
+                        <Tab.Container id="controlled-tab-example" activeKey={keyToggle} onSelect={(k) => setKeyToggle(k)}>
                             <Row>
                                 <Col sm={3}>
                                     <Nav variant="pills" className="flex-column">
                                         <Nav.Item className="arrow">
-                                            <Nav.Link eventKey="description" className={key === "description" ? "tab-style-active" : "tab-style"}>Description</Nav.Link>
+                                            <Nav.Link eventKey="description" className={keyToggle === "description" ? "tab-style-active" : "tab-style"}>Description</Nav.Link>
                                         </Nav.Item>
                                         <hr className="my-0 mx-1" />
                                         <Nav.Item>
-                                            <Nav.Link eventKey="facilities" className={key === "facilities" ? "tab-style-active" : "tab-style"}>Facilities</Nav.Link>
+                                            <Nav.Link eventKey="facilities" className={keyToggle === "facilities" ? "tab-style-active" : "tab-style"}>Facilities</Nav.Link>
                                         </Nav.Item>
                                         <hr className="my-0 mx-1" />
                                         <Nav.Item>
-                                            <Nav.Link eventKey="availability" className={key === "availability" ? "tab-style-active" : "tab-style"}>Availability</Nav.Link>
+                                            <Nav.Link eventKey="availability" className={keyToggle === "availability" ? "tab-style-active" : "tab-style"}>Availability</Nav.Link>
                                         </Nav.Item>
                                         <hr className="my-0 mx-1" />
                                         <Nav.Item>
-                                            <Nav.Link eventKey="location" className={key === "location" ? "tab-style-active" : "tab-style"}>Location</Nav.Link>
+                                            <Nav.Link eventKey="location" className={keyToggle === "location" ? "tab-style-active" : "tab-style"}>Location</Nav.Link>
                                         </Nav.Item>
                                         <hr className="my-0 mx-1" />
                                         <Nav.Item>
-                                            <Nav.Link eventKey="reviews" className={key === "reviews" ? "tab-style-active" : "tab-style"}>Reviews</Nav.Link>
+                                            <Nav.Link eventKey="reviews" className={keyToggle === "reviews" ? "tab-style-active" : "tab-style"}>Reviews</Nav.Link>
                                         </Nav.Item>
                                         <hr className="my-0 mx-1" />
                                         <Nav.Item>
-                                            <Nav.Link eventKey="finePrint" className={key === "finePrint" ? "tab-style-active" : "tab-style"}>Fine Print</Nav.Link>
+                                            <Nav.Link eventKey="finePrint" className={keyToggle === "finePrint" ? "tab-style-active" : "tab-style"}>Fine Print</Nav.Link>
                                         </Nav.Item>
                                     </Nav>
                                 </Col>
@@ -73,7 +87,7 @@ const PackageDetails = () => {
                                     <Tab.Content>
                                         <Tab.Pane eventKey="description">
                                             <div className="bg-white p-3 rounded shadow">
-                                                <h3>Marco Polo Hotel</h3>
+                                                <h3>{name}</h3>
                                                 <p>Courage of our questions cosmic ocean hearts of the stars something incredible is waiting to be known extraplanetary venture? Citizens of distant epochs a very small stage in a vast cosmic arena Rig Veda muse about stirred by starlight dispassionate extraterrestrial observer. Stirred by starlight star stuff harvesting star light from which we spring invent the universe tendrils of gossamer clouds encyclopaedia galactica? Orion's sword Sea of Tranquility vanquish the impossible the carbon in our apple pies hundreds of thousands invent the universe? Stirred by starlight another world the ash of stellar alchemy rings of Uranus Rig Veda culture. At the edge of forever dream of the mind's eye encyclopaedia galactica network of wormholes vastness is bearable only through love corpus callosum. Globular star cluster citizens of distant epochs something incredible is waiting to be known extraordinary claims require extraordinary evidence kindling the energy hidden in matter rich in mystery. Concept of the number one shores of the cosmic ocean concept of the number one courage of our questions a very small stage in a vast cosmic arena finite but unbounded.</p>
                                             </div>
                                         </Tab.Pane>
@@ -124,7 +138,9 @@ const PackageDetails = () => {
                                                     <div className="col-12 col-md-4 ps-3 border-start">
                                                         <p>Max: 3</p>
                                                         <p>From $649</p>
-                                                        <button className="btn shadow-none custom-btn py-2 rounded-pill w-100">Book Now</button>
+                                                        <Link to="/cart">
+                                                            <button className="btn shadow-none custom-btn py-2 rounded-pill w-100">Book Now</button>
+                                                        </Link>
                                                     </div>
                                                 </div>
                                                 <p>Room facilities:Air-conditioning, Free toiletries, Mini fridge, Private bathroom with shower, Satellite TV, Wi-Fi</p>
@@ -180,19 +196,21 @@ const PackageDetails = () => {
                 {/* sidebar */}
                 <div className="col-12 col-md-3">
                     <div className="rounded shadow sidebar bg-white p-3 mb-3">
-                        <h4>Marco Polo Hotel</h4>
-                        <small>Tunisia, Sousse</small>
+                        <h4>{name}</h4>
+                        <small>{location}</small>
                         <hr />
-                        <p>From $ 649</p>
+                        <p>From $ {price}</p>
                         <hr />
-                        <p>8 days/7 nights, All Inclusive.</p>
-                        <p>London Gatwick</p>
+                        <p>{days}</p>
+                        <p>{country}</p>
                         <hr />
                         <span>Adults Only</span>
-                        <span>All Inclusive</span>
+                        <span>All Inclusive</ span>
                         <span>Summer 2021</span>
                         <div className="mt-3">
-                            <button className="btn shadow-none custom-btn py-3 w-100 rounded-pill py-2">Book Now</button>
+                            <Link to="/cart">
+                                <button onClick={handleAddToCart} className="btn shadow-none custom-btn py-3 w-100 rounded-pill py-2">Book Now</button>
+                            </Link>
                         </div>
                     </div>
                     <SideBar></SideBar>

@@ -19,6 +19,10 @@ import SignIn from './components/SignIn/SignIn';
 import SignUp from './components/SignUp/SignUp';
 import AuthProvider from './context/AuthProvider';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import AddPackage from './components/AddPackage/AddPackage';
+import MyOrders from './components/MyOrders/MyOrders';
+import ManageAllOrders from './components/ManageAllOrders/ManageAllOrders';
+import UpdateOrder from './components/UpdateOrder/UpdateOrder';
 
 function App() {
   return (
@@ -36,7 +40,10 @@ function App() {
             <Route exact path="/packages">
               <Packages></Packages>
             </Route>
-            <Route exact path="/package-details">
+            <Route exact path="/add-package">
+              <AddPackage></AddPackage>
+            </Route>
+            <Route exact path="/package-details/:packageKey">
               <PackageDetails></PackageDetails>
             </Route>
             <Route exact path="/cart">
@@ -45,7 +52,7 @@ function App() {
             <Route exact path="/check-out">
               <CheckOut></CheckOut>
             </Route>
-            <Route exact path="/order-received">
+            <Route exact path="/order-received/:orderID">
               <OrderReceived></OrderReceived>
             </Route>
             <Route exact path="/shop">
@@ -56,6 +63,15 @@ function App() {
             </Route>
             <Route exact path="/add-product">
               <AddProduct></AddProduct>
+            </Route>
+            <Route exact path="/my-orders">
+              <MyOrders></MyOrders>
+            </Route>
+            <Route exact path="/manage-all-orders">
+              <ManageAllOrders></ManageAllOrders>
+            </Route>
+            <Route exact path="/update-order/:updateOrderId">
+              <UpdateOrder></UpdateOrder>
             </Route>
             <Route exact path="/contact-us">
               <ContactUs></ContactUs>

@@ -1,10 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
+import useCart from '../../hooks/useCart';
+import useProducts from '../../hooks/useProducts';
 import './Header.css'
 
 const Header = () => {
     const { user, logOut } = useAuth();
+    const [products] = useProducts();
+    const [cart] = useCart(products);
+    // const [totalProducts, setTotalProducts] = useState();
+    // console.log(cart);
+
+    // let totalQuantity = 0;
+    // for (const product of cart) {
+    //     if (!product.quantity) {
+    //         product.quantity = 1;
+    //     }
+    //     totalQuantity = totalQuantity + product.quantity;
+    //     setTotalProducts(totalQuantity)
+    // }
+    // console.log(totalProducts);
     return (
         <div>
             <nav class="navbar navbar-expand-lg  sticky-top navbar-light nav-style py-0 mt-2 mb-3">
@@ -30,16 +46,8 @@ const Header = () => {
                             <li class="nav-item mx-2">
                                 <Link class="nav-link" to="/contact-us">Contact Us</Link>
                             </li>
-                            <li class="nav-item ms-2 me1">
+                            <li class="nav-item ms-2 me-1">
                                 <Link class="nav-link" to="/about-us">About Us</Link>
-                            </li>
-                            <li class="nav-item ms-1 me-3">
-                                <Link class="nav-link position-relative" to="/cart">
-                                    <i class="fas fa-shopping-bag fs-4"></i>
-                                    <span class="position-absolute start-100 translate-middle badge rounded-pill custom-btn">
-                                        1
-                                    </span>
-                                </Link>
                             </li>
                             {user?.email && <li className="nav-item dropdown fw-bold">
                                 <Link className="nav-link dropdown-toggle" to="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -51,16 +59,16 @@ const Header = () => {
                                         <Link className="dropdown-item hover-color" to="/">My Profile</Link>
                                     </li>
                                     <li>
-                                        <Link className="dropdown-item hover-color" to="/">My Orders</Link>
+                                        <Link className="dropdown-item hover-color" to="/my-orders">My Orders</Link>
                                     </li>
                                     <li>
-                                        <Link className="dropdown-item hover-color" to="/">Add New Package</Link>
+                                        <Link className="dropdown-item hover-color" to="/add-package">Add New Package</Link>
                                     </li>
                                     <li>
                                         <Link className="dropdown-item hover-color" to="/add-product">Add New Product</Link>
                                     </li>
                                     <li>
-                                        <Link className="dropdown-item hover-color" to="/">Manage All Orders</Link>
+                                        <Link className="dropdown-item hover-color" to="/manage-all-orders">Manage All Orders</Link>
                                     </li>
                                     <li>
                                         <button className="dropdown-item hover-color" onClick={logOut}>Sign Out <i className="fas fa-sign-out-alt fs-5 text-secondary"></i></button>

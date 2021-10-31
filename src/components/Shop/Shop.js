@@ -1,15 +1,29 @@
 import React, { useEffect, useState } from 'react';
+import useCart from '../../hooks/useCart';
+import useProducts from '../../hooks/useProducts';
+import { addToDb, getStoredCart } from '../../utilities/fakedb';
 import ProductCard from '../ProductCard/ProductCard';
 
 const Shop = () => {
-    const [products, setProducts] = useState();
-    useEffect(() => {
-        fetch(`http://localhost:5000/products`)
-            .then(res => res.json())
-            .then(data => {
-                setProducts(data.users)
-            })
-    }, [])
+    const [products] = useProducts();
+    const [cart, setCart] = useCart(products);
+    console.log(cart);
+    const handleAddToCart = (product) => {
+        const exists = cart.find(pd => pd._id === product._id);
+        let newCart = [];
+        if (exists) {
+            const rest = cart.filter(pd => pd._id !== product._id);
+            // exists.quantity = exists.quantity + 1;
+            newCart = [...rest, product];
+        }
+        else {
+            // product.quantity = 1;
+            newCart = [...cart, product];
+        }
+        setCart(newCart);
+        // save to local storage (for now)
+        addToDb(product.key);
+    }
     return (
         <div className="bg-eee">
             <div className="container mx-auto pt-4">
@@ -45,6 +59,7 @@ const Shop = () => {
                             products?.map(product => <ProductCard
                                 key={product._id}
                                 product={product}
+                                handleAddToCart={handleAddToCart}
                             ></ProductCard>)
                         }
                     </div>

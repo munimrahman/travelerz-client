@@ -7,3 +7,6 @@
 .bg-paypal{
     background-color: #FFC439;
 }
+.alert-hover:hover{
+    color: black;
+}

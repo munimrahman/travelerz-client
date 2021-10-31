@@ -1,12 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Cart.css'
 import img from '../../images/pcard.jpg'
 import paypal from '../../images/paypal.png'
 import venmo from '../../images/venmo.png'
 import pay from '../../images/pay.png'
 import { Link } from 'react-router-dom';
+import { getStoredCart, removeFromDb } from '../../utilities/fakedb';
 
 const Cart = () => {
+    const [cart, setCart] = useState([]);
+    const savedCart = getStoredCart();
+    useEffect(() => {
+        const keys = Object.keys(savedCart);
+        fetch('http://localhost:5000/packages/byKeys', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(keys)
+        })
+            .then(res => res.json())
+            .then(data => setCart(data))
+    }, [savedCart])
+    // console.log(cart);
+    const handleRemove = (key) => {
+        removeFromDb(key)
+    }
     return (
         <div className="bg-eee py-4">
             <div className="container rounded bg-white shadow py-4 px-4">
@@ -22,14 +39,14 @@ const Cart = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        {cart.map(item => <tr>
                             <td className="col-7">
                                 <div className="row align-items-center">
                                     <div className="col-4 py-0 px-1">
                                         <img src={img} className="img-fluid" alt="" />
                                     </div>
                                     <div className="col-8">
-                                        <p className="m-0">Acacia Marina</p>
+                                        <p className="m-0">{item.name}</p>
                                         <p className="m-0">All Inclusive Twin Room</p>
                                         <p className="m-0">Dates: November 6, 2021 to November 13, 2021</p>
                                         <p className="m-0">People: 1 adults, 0 children</p>
@@ -37,13 +54,23 @@ const Cart = () => {
                                     </div>
                                 </div>
                             </td>
-                            <td className="col-2 text-center v-align">$120</td>
+                            <td className="col-2 text-center v-align">$ {item.price}</td>
                             <td className="col-2 text-center v-align">2</td>
                             <td className="col-2 text-center v-align">$240</td>
                             <td className="col-2 text-center v-align">
-                                <button className="btn btn-outline-danger shadow-none fw-bold px-2 py-0">X</button>
+                                <button onClick={() => handleRemove(item.key)} className="btn btn-outline-danger shadow-none fw-bold px-2 py-0">X</button>
                             </td>
-                        </tr>
+                        </tr>)
+                        }
+                        {cart.length === 0 && <tr>
+                            <td colSpan="5">
+                                <div className="container text-center">
+                                    <div class="alert alert-danger" role="alert">
+                                        No items in your Cart. Please Select a Package From <Link to="/packages" className="primary-text fw-bold text-decoration-none alert-hover">Our Packages!</Link>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>}
                     </tbody>
                     <tfoot className="text-center">
                         <tr>
@@ -92,11 +119,11 @@ const Cart = () => {
                                 </tr>
                             </tbody>
                         </table>
-                        <div className="text-center my-3">
+                        {cart.length > 0 && <div className="text-center my-3">
                             <Link to="/check-out">
                                 <button className="btn shadow-none custom-btn px-3 py-2 rounded-pill">PROCEED TO CHECKOUT</button>
                             </Link>
-                        </div>
+                        </div>}
                     </div>
                 </div>
             </div>

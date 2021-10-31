@@ -8,7 +8,7 @@ const ProductDetails = () => {
         fetch(`http://localhost:5000/products/${productID}`)
             .then(res => res.json())
             .then(data => setProduct(data))
-    }, [])
+    }, [product])
     const { name, price, img, des } = product || {};
     return (
         <div className="bg-eee">
