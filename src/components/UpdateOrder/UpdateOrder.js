@@ -63,7 +63,7 @@ const UpdateOrder = () => {
                                 />
                             </div>
                             <div className="text-center">
-                                <input className="btn btn-primary shadow-none rounded-pill fw-bold py-2 px-3" type="submit" value="Confirm Order" />
+                                <input className="btn custom-btn shadow-none rounded-pill fw-bold py-2 px-3" type="submit" value="Confirm Order" />
                             </div>
                         </form>
                     </div>

@@ -2,9 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Col, Nav, Row, Tab } from 'react-bootstrap';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
-import packageImg1 from '../../images/packageImg1.jpg'
-import packageImg2 from '../../images/packageImg2.jpg'
-import packageImg3 from '../../images/packageImg3.jpg'
 import packageImg4 from '../../images/packageImg4.jpg'
 import packageImg5 from '../../images/packageImg5.jpg'
 import packageImg6 from '../../images/packageImg6.jpg'

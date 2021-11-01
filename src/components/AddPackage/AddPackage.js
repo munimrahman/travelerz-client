@@ -61,7 +61,7 @@ const AddPackage = () => {
                                         className="form-control shadow-none"
                                         type="text"
                                         {...register("location", { required: true })}
-                                        placeholder="Package Name"
+                                        placeholder="Kuakata, Barishal"
                                     />
                                 </div>
                                 <div className="mb-2">
@@ -70,7 +70,7 @@ const AddPackage = () => {
                                         className="form-control shadow-none"
                                         type="text"
                                         {...register("country", { required: true })}
-                                        placeholder="Package Name"
+                                        placeholder="Bangladesh"
                                     />
                                 </div>
                                 <div className="mb-2">
@@ -79,7 +79,7 @@ const AddPackage = () => {
                                         className="form-control shadow-none"
                                         type="text"
                                         {...register("days", { required: true })}
-                                        placeholder="Package Name"
+                                        placeholder="2 days/3 nights"
                                     />
                                 </div>
                                 <div className="mb-2">
@@ -103,7 +103,7 @@ const AddPackage = () => {
                                         {...register("img1", {
                                             required: true
                                         })}
-                                        placeholder="Package Img Should Be 900px * 600px"
+                                        placeholder="Img Should Be 900px * 600px"
                                     />
                                     <small>Package Img Should Be 900px * 600px</small>
                                 </div>
@@ -115,7 +115,7 @@ const AddPackage = () => {
                                         {...register("img2", {
                                             required: true
                                         })}
-                                        placeholder="Package Img Should Be 900px * 600px"
+                                        placeholder="Img Should Be 900px * 600px"
                                     />
                                     <small>Package Img Should Be 900px * 600px</small>
                                 </div>
@@ -127,9 +127,19 @@ const AddPackage = () => {
                                         {...register("img3", {
                                             required: true
                                         })}
-                                        placeholder="Package Img Should Be 900px * 600px"
+                                        placeholder="Img Should Be 900px * 600px"
                                     />
-                                    <small>Package Img Should Be 900px * 600px</small>
+                                </div>
+                                <div className="mb-3">
+                                    <label className="mb-2">Offer Text</label> <br />
+                                    <input
+                                        className="form-control shadow-none"
+                                        type="text"
+                                        {...register("offerText", {
+                                            required: true
+                                        })}
+                                        placeholder="POPULAR/NEW/BEST"
+                                    />
                                 </div>
                                 {/* <div className="mb-3">
                                     <label className="mb-2">Product Unique Key</label> <br />

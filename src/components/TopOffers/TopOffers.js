@@ -1,95 +1,34 @@
 import React from 'react';
-import topOffers from "../../images/top-offers.jpg";
+import usePackages from '../../hooks/usePackages';
+import TopOfferCard from '../TopOfferCard/TopOfferCard';
+import TopOfferSideBar from '../TopOfferSideBar/TopOfferSideBar';
+import './TopOffer.css'
 
 const TopOffers = () => {
+    const packages = usePackages();
+    const topOffers = packages?.slice(0, 6)
+    const toOffersSide = packages?.slice(5, 9)
     return (
-        <div className="container mx-auto">
-            <h1>Explore our top offers</h1>
-            <div className="row">
-                <div className="col-12 col-md-8">
-                    <div className="border row my-2">
-                        <div className="col-12 col-md-3">
-                            <img src={topOffers} className="img-fluid" alt="" />
-                        </div>
-                        <div className="row col-12 col-md-9">
-                            <div className="col-12 col-md-9">
-                                <p>Acacia Marina</p>
-                            </div>
-                            <div className="col-12 col-md-3 border-start">
-                                <p> price</p>
-                            </div>
-                        </div>
+        <div className="bg-eee">
+            <div className="container mx-auto">
+                <h1 className="text-center py-5 fredoka-font">Explore Our Top Offers</h1>
+                <div className="row">
+                    <div className="col-12 col-md-8">
+                        {
+                            topOffers?.map(singleOffer => <TopOfferCard
+                                key={singleOffer._id}
+                                singleOffer={singleOffer}
+                            ></TopOfferCard>)
+                        }
                     </div>
-                    <div className="border row my-2">
-                        <div className="col-12 col-md-3">
-                            <img src={topOffers} className="img-fluid" alt="" />
-                        </div>
-                        <div className="row col-12 col-md-9">
-                            <div className="col-12 col-md-9">
-                                <p>Acacia Marina</p>
-                            </div>
-                            <div className="col-12 col-md-3 border-start">
-                                <p> price</p>
-                            </div>
-                        </div>
+                    <div className="col-12 col-md-4 py-4">
+                        {
+                            toOffersSide?.map(topOfferSide => <TopOfferSideBar
+                                key={topOfferSide._id}
+                                topOfferSide={topOfferSide}
+                            ></TopOfferSideBar>)
+                        }
                     </div>
-                    <div className="border row my-2">
-                        <div className="col-12 col-md-3">
-                            <img src={topOffers} className="img-fluid" alt="" />
-                        </div>
-                        <div className="row col-12 col-md-9">
-                            <div className="col-12 col-md-9">
-                                <p>Acacia Marina</p>
-                            </div>
-                            <div className="col-12 col-md-3 border-start">
-                                <p> price</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="border row my-2">
-                        <div className="col-12 col-md-3">
-                            <img src={topOffers} className="img-fluid" alt="" />
-                        </div>
-                        <div className="row col-12 col-md-9">
-                            <div className="col-12 col-md-9">
-                                <p>Acacia Marina</p>
-                            </div>
-                            <div className="col-12 col-md-3 border-start">
-                                <p> price</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="border row my-2">
-                        <div className="col-12 col-md-3">
-                            <img src={topOffers} className="img-fluid" alt="" />
-                        </div>
-                        <div className="row col-12 col-md-9">
-                            <div className="col-12 col-md-9">
-                                <p>Acacia Marina</p>
-                            </div>
-                            <div className="col-12 col-md-3 border-start">
-                                <p> price</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="border row my-2">
-                        <div className="col-12 col-md-3">
-                            <img src={topOffers} className="img-fluid" alt="" />
-                        </div>
-                        <div className="row col-12 col-md-9">
-                            <div className="col-12 col-md-9">
-                                <p>Acacia Marina</p>
-                            </div>
-                            <div className="col-12 col-md-3 border-start">
-                                <p> price</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-12 col-md-4 border">
-                    <img src={topOffers} className="img-fluid" alt="" />
-                    <img src={topOffers} className="img-fluid" alt="" />
-                    <img src={topOffers} className="img-fluid" alt="" />
                 </div>
             </div>
         </div>

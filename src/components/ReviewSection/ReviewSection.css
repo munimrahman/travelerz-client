@@ -1,0 +1,36 @@
+.review-section{
+    background: url(../../images/home-bg.jpg) no-repeat center center;
+  background-size: cover;
+}
+.top-m{
+    margin-top: -70px;
+    padding-bottom: 100px;
+}
+.bottom-m{
+    margin-bottom: -70px;
+    padding-top: 100px;
+}
+.bottom-p{
+    padding: 100px 20px;
+}
+.review{
+    background-color: #F5F8FB;
+}
+.hr-line{
+    height: 1px;
+}
+.carousel-img{
+    height: 70px;
+    border-radius: 50%;
+}
+.text-block-review-section {
+    position: absolute;
+    bottom: 100px;
+    top: 120px;
+    right: 1px;
+    left: 0px;
+    color: rgb(255, 255, 255);
+    padding-left: 30px;
+    padding-right: 100px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.80), transparent);
+}

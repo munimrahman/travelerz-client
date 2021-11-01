@@ -28,7 +28,7 @@ const Cart = () => {
         <div className="bg-eee py-4">
             <div className="container rounded bg-white shadow py-4 px-4">
                 <h1 className="py-2">Cart</h1>
-                <table class="table">
+                <table className="table">
                     <thead>
                         <tr className="text-center">
                             <th className="col-6">Products</th>
@@ -65,7 +65,7 @@ const Cart = () => {
                         {cart.length === 0 && <tr>
                             <td colSpan="5">
                                 <div className="container text-center">
-                                    <div class="alert alert-danger" role="alert">
+                                    <div className="alert alert-danger" role="alert">
                                         No items in your Cart. Please Select a Package From <Link to="/packages" className="primary-text fw-bold text-decoration-none alert-hover">Our Packages!</Link>
                                     </div>
                                 </div>
@@ -103,7 +103,7 @@ const Cart = () => {
                     </div>
                     <div className="col-12 col-md-5">
                         <h3 className="my-3">Cart Total</h3>
-                        <table class="table border rounded">
+                        <table className="table border rounded">
                             <tbody>
                                 <tr>
                                     <th className="bg-secondary text-white">Subtotals</th>

@@ -1,0 +1,31 @@
+.top-title-font{
+    font-size: 18px;
+}
+.offer-card:hover .top-title-font{
+    color: #e91e63;
+    cursor: pointer;
+}
+.location-font{
+    font-size: 13px;
+}
+.icon-color{
+    color: #858585;;
+}
+.icon-font{
+    font-size: 22px;
+}
+.card-container{
+    position: relative;
+}
+.text-block {
+    position: absolute;
+    bottom: 1px;
+    right: 1px;
+    color: rgb(255, 255, 255);
+    padding-left: 20px;
+    padding-right: 103px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.80), transparent);
+}
+.start-font{
+    font-size: 14px;
+}

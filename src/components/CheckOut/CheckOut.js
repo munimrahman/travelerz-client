@@ -220,7 +220,7 @@ const CheckOut = () => {
                         </div>
                     </div>
                     <h4 className="my-3">Your Order</h4>
-                    <table class="table my-4">
+                    <table className="table my-4">
                         <tbody>
                             <tr>
                                 <th className="bg-secondary text-white">Products</th>
@@ -249,23 +249,23 @@ const CheckOut = () => {
                         </tbody>
                     </table>
                     <div className="border rounded my-4 p-3">
-                        <div class="form-check">
-                            <input class="form-check-input shadow-none" type="radio" name="flexRadioDefault" id="flexRadioDefault1" onClick={() => setPay("cash")} />
-                            <label class="form-check-label" for="flexRadioDefault1">
+                        <div className="form-check">
+                            <input className="form-check-input shadow-none" type="radio" name="flexRadioDefault" id="flexRadioDefault1" onClick={() => setPay("cash")} />
+                            <label className="form-check-label" for="flexRadioDefault1">
                                 Cash Payment
                             </label>
                             {pay === "cash" && <p className="border shadow-sm p-2 rounded w-75 mt-2">You can pay in cash when you visited our site!</p>}
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input shadow-none" type="radio" name="flexRadioDefault" id="flexRadioDefault2" onClick={() => setPay("bank")} />
-                            <label class="form-check-label" for="flexRadioDefault2">
+                        <div className="form-check">
+                            <input className="form-check-input shadow-none" type="radio" name="flexRadioDefault" id="flexRadioDefault2" onClick={() => setPay("bank")} />
+                            <label className="form-check-label" for="flexRadioDefault2">
                                 Direct Bank Transfer
                             </label>
                             {pay === "bank" && <p className="border shadow-sm p-2 rounded w-75 mt-2">Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.</p>}
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input shadow-none" type="radio" name="flexRadioDefault" id="flexRadioDefault2" onClick={() => setPay("card")} />
-                            <label class="form-check-label" for="flexRadioDefault2">
+                        <div className="form-check">
+                            <input className="form-check-input shadow-none" type="radio" name="flexRadioDefault" id="flexRadioDefault2" onClick={() => setPay("card")} />
+                            <label className="form-check-label" for="flexRadioDefault2">
                                 Credit Card (Stripe)
                             </label>
                             {pay === "card" && <div className="border shadow-sm p-3 rounded w-75 mt-2">
@@ -284,9 +284,9 @@ const CheckOut = () => {
                                         <input type="number" name="cardNumber" id="" placeholder="CVC" className="form-control shadow-none" />
                                     </div>
                                 </div>
-                                <div class="form-check col-12 mt-3">
-                                    <input class="form-check-input shadow-none" type="checkbox" value="" id="flexCheckDefault" />
-                                    <label class="form-check-label" for="flexCheckDefault">
+                                <div className="form-check col-12 mt-3">
+                                    <input className="form-check-input shadow-none" type="checkbox" value="" id="flexCheckDefault" />
+                                    <label className="form-check-label" for="flexCheckDefault">
                                         Save payment information to my account for future purchases.
                                     </label>
                                 </div>
@@ -301,7 +301,7 @@ const CheckOut = () => {
                     </div>
                 </div> :
                     <div className="w-75 mx-auto mt-3 text-center">
-                        <div class="alert alert-danger py-5 fs-4" role="alert">
+                        <div className="alert alert-danger py-5 fs-4" role="alert">
                             Your Cart Empty! Select Package From <Link to="/packages" className="primary-text text-decoration-none alert-hover">Our Packages!</Link>
                         </div>
                     </div>}

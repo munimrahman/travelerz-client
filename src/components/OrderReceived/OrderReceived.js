@@ -19,7 +19,7 @@ const OrderReceived = () => {
         <div className="bg-eee py-4">
             <div className="container rounded bg-white shadow py-4 px-4">
                 <h1 className="py-2">Order Received</h1>
-                <p>Thank you. Your order is <span className="bg-danger text-white rounded">{orderStatus}</span>. Please wait for confirmation!</p>
+                {orderStatus === 'CONFIRM' ? <p>Welcome! Your Order is &nbsp;<span className="badge bg-success">CONFIRMED</span>!</p> : <p>Thank you. Your Order is &nbsp;<span className="badge bg-warning">PENDING</span>. Please Wait for Confirmation!</p>}
                 <div className="d-flex">
                     <div className="side-border pe-3">
                         <small className="s-font">ORDER ID:</small>
@@ -45,7 +45,7 @@ const OrderReceived = () => {
                     </div>
                 </div>
                 <h4 className="mt-5 mb-3">Order details</h4>
-                <table class="table my-4">
+                <table className="table my-4">
                     <tbody>
                         <tr>
                             <th className="bg-secondary text-white">Products</th>

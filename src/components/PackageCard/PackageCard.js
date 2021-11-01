@@ -1,22 +1,21 @@
 import React from 'react';
 import './PackageCard.css'
-import cardImg from '../../images/pcard.jpg'
 import { Link } from 'react-router-dom';
 
 const PackageCard = (props) => {
-    const { _id, name, location, days, country, price } = props.singlePackage;
+    const { _id, name, location, days, offerText, country, price, img3 } = props.singlePackage;
     const url = `/package-details/${_id}`
     return (
-        <div class="col">
-            <div class="card h-100 card-border shadow">
-                <div class="ribbon">
-                    <small>Popular</small>
-                </div>
+        <div className="col">
+            <div className="card h-100 card-border shadow">
                 <div className="img-div">
-                    <img src={cardImg} class="card-img-top" alt="..." />
+                    <div className="ribbon">
+                        <small>{offerText}</small>
+                    </div>
+                    <img src={img3} className="card-img-top" alt="..." />
                 </div>
-                <div class="card-body">
-                    <h5 class="card-title">{name}</h5>
+                <div className="card-body">
+                    <h5 className="card-title">{name}</h5>
                     <small>{location}</small>
                     <hr />
                     <p>From $ {price}</p>

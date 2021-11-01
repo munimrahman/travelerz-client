@@ -2,10 +2,12 @@
     background: url(../../images/slider/slider-bg.jpg) no-repeat center center;
   background-size: cover;
 }
+.hero-font-size{
+    font-size: 60px;
+}
 .font{
     /* font-size: 70px; */
 }
 .img-size{
-    /* height: 600px; */
-    /* width: 900px; */
+    /* height: 500px; */
 }

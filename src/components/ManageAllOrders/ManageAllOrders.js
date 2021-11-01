@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import swal from 'sweetalert';
+import './ManageOrders.css'
 
 const ManageAllOrders = () => {
     const [orders, setOrders] = useState([]);
@@ -52,7 +53,7 @@ const ManageAllOrders = () => {
                     </div>
                     <div className="col-12 col-md-10 border-start">
                         <h4 className="text-center">All Orders</h4>
-                        <table class="table">
+                        <table className="table">
                             <thead>
                                 <tr className="text-center">
                                     <th scope="col">#</th>
@@ -71,11 +72,13 @@ const ManageAllOrders = () => {
                                         <td>{order?.name}</td>
                                         <td>{order?.email}</td>
                                         <td>
-                                            {order?.orderStatus === 'CONFIRM' ? <span class="badge bg-success">Confirm</span> : <span class="badge bg-warning">Pending</span>}
+                                            {order?.orderStatus === 'CONFIRM' ? <span className="badge bg-success">CONFIRMED</span> : <span className="badge bg-warning">PENDING</span>}
                                         </td>
                                         <td>
                                             <Link to={`/update-order/${order?._id}`}>
-                                                <button className="mx-1 btn btn-success shadow-none py-1"><i class="fas fa-edit"></i></button>
+                                                <button className="mx-1 btn btn-info text-white shadow-none py-1" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                    <i className="fas fa-edit"></i>
+                                                </button>
                                             </Link>
                                             <button onClick={() => handleDelete(order?._id)} className="mx-1 btn btn-danger shadow-none py-1"><i className="fas fa-trash-alt"></i></button>
                                         </td>

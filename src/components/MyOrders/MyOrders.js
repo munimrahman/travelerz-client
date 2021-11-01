@@ -2,24 +2,26 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import swal from 'sweetalert';
 import useAuth from '../../hooks/useAuth';
+import './MyOrders.css'
 
 const MyOrders = () => {
     const [orders, setOrders] = useState();
+    const [singleItem, setSingleItem] = useState();
     const { user } = useAuth();
     // console.log(orders);
     useEffect(() => {
-        fetch(`http://localhost:5000/orders`)
+        fetch(`http://localhost:5000/orders?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setOrders(data.orders))
     }, [])
 
-    const myOrders = orders?.filter(order => order.email === user?.email)
-    myOrders?.map(order => console.log(order?.item?.cart['price']))
-    // console.log(myOrders);
+    // const myOrders = orders?.filter(order => order.email === user?.email)
+    // orders?.map(order => console.log(order?.item?.cart.length))
+    // console.log(singleItem);
     const handleDelete = id => {
         swal({
             title: "Are You Sure to Delete?",
-            text: "Once deleted, you will not be able to recover this order data!",
+            text: "If deleted, order will be canceled!",
             icon: "warning",
             buttons: true,
             dangerMode: true,
@@ -33,7 +35,7 @@ const MyOrders = () => {
                         .then(res => res.json())
                         .then(data => {
                             if (data.deletedCount > 0) {
-                                swal("Order has been deleted!", {
+                                swal("Order has been Canceled!", {
                                     icon: "success",
                                 });
                             }
@@ -59,29 +61,32 @@ const MyOrders = () => {
                     </div>
                     <div className="col-12 col-md-10 border-start">
                         <h4 className="text-center">My Orders</h4>
-                        <table class="table">
+                        <table className="table">
                             <thead>
                                 <tr className="text-center">
                                     <th scope="col">#</th>
                                     <th scope="col">Order ID</th>
-                                    <th scope="col">Package Name</th>
-                                    <th scope="col">Price</th>
+                                    <th scope="col">Total Items</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {
-                                    myOrders?.map((order, index) => <tr className="text-center">
+                                    orders?.map((order, index) => <tr className="text-center">
                                         <th scope="roEDw">{index + 1}</th>
                                         <td>{order?._id}</td>
-                                        <td>{order?.name}</td>
-                                        <td></td>
+                                        <td>{order?.item?.cart.length}</td>
                                         <td>
-                                            <span class="badge bg-warning">Pending</span>
+                                            {order?.orderStatus === 'CONFIRM' ? <span className="badge bg-success">CONFIRMED</span> : <span className="badge bg-warning">PENDING</span>}
                                         </td>
                                         <td>
-                                            <button className="mx-1 btn btn-danger shadow-none py-1"><i className="fas fa-trash-alt"></i></button>
+                                            <Link to={`/order-received/${order._id}`}>
+                                                <button className="mx-1 btn btn-info text-white shadow-none py-1" data-bs-toggle="tooltip" data-bs-placement="bottom" title="View Order">
+                                                    <i className="far fa-eye"></i>
+                                                </button>
+                                            </Link>
+                                            <button onClick={() => handleDelete(order._id)} className="mx-1 btn btn-danger shadow-none py-1"><i className="fas fa-trash-alt"></i></button>
                                         </td>
                                     </tr>)
                                 }

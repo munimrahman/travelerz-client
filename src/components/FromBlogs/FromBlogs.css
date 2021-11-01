@@ -1,0 +1,6 @@
+.home-blog-card:hover .blog-title{
+    color: #e91e63;
+}
+.home-blog-card:hover{
+    cursor: pointer;
+}

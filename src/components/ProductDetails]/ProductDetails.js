@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
+import shopSoon from '../../images/shop-soon.jpg'
 
 const ProductDetails = () => {
     const { productID } = useParams();
@@ -8,7 +9,7 @@ const ProductDetails = () => {
         fetch(`http://localhost:5000/products/${productID}`)
             .then(res => res.json())
             .then(data => setProduct(data))
-    }, [product])
+    }, [])
     const { name, price, img, des } = product || {};
     return (
         <div className="bg-eee">
@@ -34,7 +35,27 @@ const ProductDetails = () => {
                                 <input className="form-control me-2 text-center shadow-none" type="number" defaultValue="1" aria-label="Search" />
                             </div>
                             <div className="col-12 col-md-6">
-                                <button className="btn custom-btn text-white fw-bold py-2 w-100 rounded-pill shadow-none" type="submit">Add To Cart</button>
+                                <button className="btn custom-btn text-white fw-bold py-2 w-100 rounded-pill shadow-none" type="submit" data-bs-toggle="modal" data-bs-target="#exampleModal">Add To Cart</button>
+                                {/* Modal Data */}
+                                <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div className="modal-dialog modal-dialog-centered">
+                                        <div className="modal-content">
+                                            <div className="modal-header">
+                                                <h5 className="modal-title text-danger" id="exampleModalLabel">Important Notice!</h5>
+                                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div className="modal-body">
+                                                <div className="text-center">
+                                                    <h6>Our Online Shopping Section Coming Soon!</h6>
+                                                    <img src={shopSoon} className="img-fluid rounded" alt="" />
+                                                </div>
+                                            </div>
+                                            <div className="modal-footer">
+                                                <button type="button" className="btn shadow-none custom-btn" data-bs-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <p className="py-3 text-secondary service-font-size">Categories: <span className="primary-text">Accessories</span>, <span className="primary-text">Camping</span>, <span className="primary-text">Summer</span></p>
