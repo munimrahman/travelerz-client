@@ -1,5 +1,5 @@
 # Travelerz | Tour Booking Site
-It's a Physio Therapy Site! Check it out! - [Travelerz](https://travelerz-munimrh.web.app/)
+It's a Toure Booking Site! Check it out! - [Travelerz](https://travelerz-munimrh.web.app/)
 
 ## Project Details
 
