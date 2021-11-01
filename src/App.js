@@ -40,39 +40,39 @@ function App() {
             <Route exact path="/packages">
               <Packages></Packages>
             </Route>
-            <Route exact path="/add-package">
+            <PrivateRoute exact path="/add-package">
               <AddPackage></AddPackage>
-            </Route>
-            <Route exact path="/package-details/:packageKey">
+            </PrivateRoute>
+            <PrivateRoute exact path="/package-details/:packageKey">
               <PackageDetails></PackageDetails>
-            </Route>
-            <Route exact path="/cart">
+            </PrivateRoute>
+            <PrivateRoute exact path="/cart">
               <Cart></Cart>
-            </Route>
-            <Route exact path="/check-out">
+            </PrivateRoute>
+            <PrivateRoute exact path="/check-out">
               <CheckOut></CheckOut>
-            </Route>
-            <Route exact path="/order-received/:orderID">
+            </PrivateRoute>
+            <PrivateRoute exact path="/order-received/:orderID">
               <OrderReceived></OrderReceived>
-            </Route>
+            </PrivateRoute>
             <Route exact path="/shop">
               <Shop></Shop>
             </Route>
-            <Route exact path="/product-details/:productID">
+            <PrivateRoute exact path="/product-details/:productID">
               <ProductDetails></ProductDetails>
-            </Route>
-            <Route exact path="/add-product">
+            </PrivateRoute>
+            <PrivateRoute exact path="/add-product">
               <AddProduct></AddProduct>
-            </Route>
-            <Route exact path="/my-orders">
+            </PrivateRoute>
+            <PrivateRoute exact path="/my-orders">
               <MyOrders></MyOrders>
-            </Route>
-            <Route exact path="/manage-all-orders">
+            </PrivateRoute>
+            <PrivateRoute exact path="/manage-all-orders">
               <ManageAllOrders></ManageAllOrders>
-            </Route>
-            <Route exact path="/update-order/:updateOrderId">
+            </PrivateRoute>
+            <PrivateRoute exact path="/update-order/:updateOrderId">
               <UpdateOrder></UpdateOrder>
-            </Route>
+            </PrivateRoute>
             <Route exact path="/contact-us">
               <ContactUs></ContactUs>
             </Route>

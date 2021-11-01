@@ -20,7 +20,7 @@ const AddPackage = () => {
     }
     const onSubmit = (data) => {
         data.key = pass
-        fetch('http://localhost:5000/packages', {
+        fetch('https://wicked-wizard-56509.herokuapp.com/packages', {
             method: "POST",
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(data)

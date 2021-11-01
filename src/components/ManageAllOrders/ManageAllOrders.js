@@ -6,7 +6,7 @@ import './ManageOrders.css'
 const ManageAllOrders = () => {
     const [orders, setOrders] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/orders')
+        fetch('https://wicked-wizard-56509.herokuapp.com/orders')
             .then(res => res.json())
             .then(data => setOrders(data.orders))
     }, [])
@@ -20,7 +20,7 @@ const ManageAllOrders = () => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    fetch(`http://localhost:5000/orders/${id}`, {
+                    fetch(`https://wicked-wizard-56509.herokuapp.com/orders/${id}`, {
                         method: "DELETE",
                         headers: { 'content-type': 'application/json' }
                     })

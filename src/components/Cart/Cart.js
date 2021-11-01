@@ -12,7 +12,7 @@ const Cart = () => {
     const savedCart = getStoredCart();
     useEffect(() => {
         const keys = Object.keys(savedCart);
-        fetch('http://localhost:5000/packages/byKeys', {
+        fetch('https://wicked-wizard-56509.herokuapp.com/packages/byKeys', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(keys)

@@ -14,7 +14,7 @@ const PackageDetails = () => {
     const { packageKey } = useParams()
     const [packageDetails, setPackageDetails] = useState();
     useEffect(() => {
-        fetch(`http://localhost:5000/packages/${packageKey}`)
+        fetch(`https://wicked-wizard-56509.herokuapp.com/packages/${packageKey}`)
             .then(res => res.json())
             .then(data => setPackageDetails(data))
     }, [])

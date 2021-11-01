@@ -11,13 +11,13 @@ const UpdateOrder = () => {
     const [order, setOrder] = useState({ address: '', city: '', country: '', des: '', desOptional: '', email: '', item: {}, name: '', orderDate: '', orderKey: {}, orderStatus: '', paymentMethod: {}, phone: '', zip: '', _id: '' })
     console.log(order?.orderStatus);
     useEffect(() => {
-        fetch(`http://localhost:5000/orders/${updateOrderId}`)
+        fetch(`https://wicked-wizard-56509.herokuapp.com/orders/${updateOrderId}`)
             .then(res => res.json())
             .then(data => setOrder(data))
     }, [])
 
     const onSubmit = (data) => {
-        fetch(`http://localhost:5000/orders/${updateOrderId}`, {
+        fetch(`https://wicked-wizard-56509.herokuapp.com/orders/${updateOrderId}`, {
             method: "PUT",
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(data)

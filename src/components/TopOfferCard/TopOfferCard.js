@@ -1,9 +1,9 @@
 import React from 'react';
-import aquila from "../../images/aquila.jpg";
 import { Link } from 'react-router-dom';
 
 const TopOfferCard = (props) => {
-    const { _id, name, price, days, location, country, img3 } = props.singleOffer;
+    // console.log(props.singleOffer);
+    const { _id, name, price, days, location, country, img3 } = props.singleOffer || {};
     return (
         // /package-details/61803e76be2ef01c6225eea4
         <div className="row my-4 bg-white py-2 rounded offer-card shadow align-items-center">

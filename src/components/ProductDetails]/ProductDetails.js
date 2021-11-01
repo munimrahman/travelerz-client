@@ -6,7 +6,7 @@ const ProductDetails = () => {
     const { productID } = useParams();
     const [product, setProduct] = useState();
     useEffect(() => {
-        fetch(`http://localhost:5000/products/${productID}`)
+        fetch(`https://wicked-wizard-56509.herokuapp.com/products/${productID}`)
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [])

@@ -20,7 +20,7 @@ const CheckOut = () => {
 
     useEffect(() => {
         const keys = Object.keys(savedCart);
-        fetch('http://localhost:5000/packages/byKeys', {
+        fetch('https://wicked-wizard-56509.herokuapp.com/packages/byKeys', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(keys)
@@ -51,7 +51,7 @@ const CheckOut = () => {
         data.orderKey = { pass }
         data.orderDate = orderDate
         data.item = { cart }
-        fetch('http://localhost:5000/orders', {
+        fetch('https://wicked-wizard-56509.herokuapp.com/orders', {
             method: "POST",
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(data)

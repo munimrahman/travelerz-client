@@ -7,7 +7,7 @@ const OrderReceived = () => {
     const { orderID } = useParams();
     // console.log(orderID);
     useEffect(() => {
-        fetch(`http://localhost:5000/orders/${orderID}`)
+        fetch(`https://wicked-wizard-56509.herokuapp.com/orders/${orderID}`)
             .then(res => res.json())
             .then(data => setOrderData(data))
     }, [])

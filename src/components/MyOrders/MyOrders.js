@@ -10,7 +10,7 @@ const MyOrders = () => {
     const { user } = useAuth();
     // console.log(orders);
     useEffect(() => {
-        fetch(`http://localhost:5000/orders?email=${user?.email}`)
+        fetch(`https://wicked-wizard-56509.herokuapp.com/orders?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setOrders(data.orders))
     }, [])
@@ -28,7 +28,7 @@ const MyOrders = () => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    fetch(`http://localhost:5000/orders/${id}`, {
+                    fetch(`https://wicked-wizard-56509.herokuapp.com/orders/${id}`, {
                         method: "DELETE",
                         headers: { 'content-type': 'application/json' }
                     })

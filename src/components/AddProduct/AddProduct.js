@@ -21,7 +21,7 @@ const AddProduct = () => {
 
     // console.log();
     const onSubmit = (data) => {
-        fetch('http://localhost:5000/products', {
+        fetch('https://wicked-wizard-56509.herokuapp.com/products', {
             method: "POST",
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(data)
