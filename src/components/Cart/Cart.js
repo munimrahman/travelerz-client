@@ -47,10 +47,6 @@ const Cart = () => {
                                     </div>
                                     <div className="col-8">
                                         <p className="m-0">{item.name}</p>
-                                        <p className="m-0">All Inclusive Twin Room</p>
-                                        <p className="m-0">Dates: November 6, 2021 to November 13, 2021</p>
-                                        <p className="m-0">People: 1 adults, 0 children</p>
-                                        <p className="m-0">Rooms: 1</p>
                                     </div>
                                 </div>
                             </td>

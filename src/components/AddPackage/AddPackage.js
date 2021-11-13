@@ -141,41 +141,7 @@ const AddPackage = () => {
                                         placeholder="POPULAR/NEW/BEST"
                                     />
                                 </div>
-                                {/* <div className="mb-3">
-                                    <label className="mb-2">Product Unique Key</label> <br />
-                                    <div className="row">
-                                        <div className="col-8">
-                                            <input
-                                                className="form-control shadow-none"
-                                                type="text"
-                                                {...register("key", {
-                                                    required: true,
-                                                    minLength: 10,
-                                                    maxLength: 10
-                                                })}
-                                                defaultValue={pass}
-                                                placeholder="Please Don't Fill Manually"
-                                                disabled
-                                            />
-                                        </div>
-                                        <button className="col-4 custom-btn rounded-pill">Generate Key</button>
-                                    </div>
-                                    <small>Fill It By Generate Key Button For Avoiding Unexpected Error</small>
-                                </div> */}
                             </div>
-
-                            {/* <div className="mb-3">
-                                <label className="mb-2">Descriptions*</label> <br />
-                                <textarea
-                                    className="form-control shadow-none"
-                                    type="text"
-                                    {...register("des", {
-                                        required: true
-                                    })}
-                                    placeholder="Package Descriptions"
-                                    rows="5"
-                                />
-                            </div> */}
                             <div onClick={generatePassword} className="text-center">
                                 <input className="btn custom-btn py-3 px-4 shadow-none rounded-pill fw-bold py-2 px-3" type="submit" value="Add Product" />
                             </div>
