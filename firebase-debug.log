@@ -1,0 +1,35 @@
+[debug] [2023-04-12T23:18:30.182Z] ----------------------------------------------------------------------
+[debug] [2023-04-12T23:18:30.184Z] Command:       /usr/bin/node /usr/bin/firebase deploy
+[debug] [2023-04-12T23:18:30.184Z] CLI Version:   11.26.0
+[debug] [2023-04-12T23:18:30.184Z] Platform:      linux
+[debug] [2023-04-12T23:18:30.184Z] Node Version:  v18.15.0
+[debug] [2023-04-12T23:18:30.185Z] Time:          Thu Apr 13 2023 05:18:30 GMT+0600 (Bangladesh Standard Time)
+[debug] [2023-04-12T23:18:30.185Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-04-12T23:18:30.237Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-04-12T23:18:30.238Z] > authorizing via signed-in user (munimrh@gmail.com)
+[debug] [2023-04-12T23:18:30.238Z] [iam] checking project travelerz-munimrh for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-04-12T23:18:30.239Z] > refreshing access token with scopes: []
+[debug] [2023-04-12T23:18:30.240Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-04-12T23:18:30.240Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-04-12T23:18:30.735Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2023-04-12T23:18:30.736Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-04-12T23:18:30.742Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/travelerz-munimrh:testIamPermissions [none]
+[debug] [2023-04-12T23:18:30.742Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/travelerz-munimrh:testIamPermissions x-goog-quota-user=projects/travelerz-munimrh
+[debug] [2023-04-12T23:18:30.743Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/travelerz-munimrh:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-04-12T23:18:32.577Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/travelerz-munimrh:testIamPermissions 200
+[debug] [2023-04-12T23:18:32.577Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/travelerz-munimrh:testIamPermissions {}
+[debug] [2023-04-12T23:18:32.578Z] [iam] error while checking permissions, command may fail: FirebaseError: Authorization failed. This account is missing the following required permissions on project travelerz-munimrh:
+
+  firebase.projects.get
+  firebasehosting.sites.update
+[debug] [2023-04-12T23:18:32.582Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/travelerz-munimrh [none]
+[debug] [2023-04-12T23:18:33.436Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/travelerz-munimrh 403
+[debug] [2023-04-12T23:18:33.436Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/travelerz-munimrh {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2023-04-12T23:18:33.439Z] HTTP Error: 403, The caller does not have permission
+[debug] [2023-04-12T23:18:33.820Z] FirebaseError: HTTP Error: 403, The caller does not have permission
+    at responseToError (/usr/lib/node_modules/firebase-tools/lib/responseToError.js:49:12)
+    at RetryOperation._fn (/usr/lib/node_modules/firebase-tools/lib/apiv2.js:288:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: Failed to get Firebase project travelerz-munimrh. Please make sure the project exists and your account has permission to access it.
